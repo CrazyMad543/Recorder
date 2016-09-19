@@ -7,17 +7,14 @@ RecordListModel::RecordListModel(QObject *parent) : QAbstractListModel(parent) {
 
 RecordListModel::~RecordListModel() {
     qDeleteAll(records);
-    records.clear();
 }
 
 void RecordListModel::updRecord(const QString &title, const QString &description, int inx) {
-    beginResetModel();
     records.at(inx)->setTitle(title);
     records.at(inx)->setDescription(description);
 
     auto modelIndex = index(inx);
     emit dataChanged(modelIndex, modelIndex);
-    endResetModel();
 }
 
 QHash<int, QByteArray> RecordListModel::roleNames() const {

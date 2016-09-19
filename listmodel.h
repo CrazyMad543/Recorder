@@ -27,9 +27,6 @@ public:
     Qt::ItemFlags flags(const QModelIndex &index) const;
     QHash<int, QByteArray> roleNames() const override;
 
-signals:
-    void dataChanged(const QModelIndex& topLeft, const QModelIndex& bottomRight);
-
 private:
     QList<Record*> records;
 };
